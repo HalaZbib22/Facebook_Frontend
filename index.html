@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login/Sign Up</title>
+    <link href="style.css" rel="stylesheet" />
+    <script defer src="login.js"></script>
+  </head>
+  <body>
+    <div class="top">
+      <div class="image">
+        <img src="assets/cat-pixel.png" alt="logo" title="Facebook" />
+      </div>
+      <div class="title">
+        <h1 title="Facebook">Facebook</h1>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="form">
+        <div class="EmailLogin">
+          <label for="email">EMAIL</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="example@test.com"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            title="Enter your email"
+            required
+          />
+        </div>
+
+        <div class="PasswordInput">
+          <label for="password">PASSWORD</label>
+          <input
+            type="password"
+            id="email"
+            name="pw"
+            placeholder="Six or more characters"
+            pattern=".{6,}"
+            title="Six or more characters"
+            required
+          />
+        </div>
+
+        <div class="LoginButton">
+          <button type="button">Login</button>
+        </div>
+        <hr />
+        <!-- <div class="SignUpButton">
+          <a href="#"><button type="button"></button></a>
+        </div> -->
+      </div>
+    </div>
+    <!-- END OF FORM -->
+
+    <button data-modal-target="#modal">Sign Up</button>
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <div class="title">Sign Up!</div>
+        <button data-close-button class="close-button">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="FirstName">
+          <input
+            type="text"
+            id="FN"
+            name="First Name"
+            pattern="[A-Za-z]"
+            title="Enter your first name"
+            placeholder="First name"
+            required
+          />
+        </div>
+        <div class="LastName">
+          <input
+            type="text"
+            id="LN"
+            name="Last Name"
+            pattern="[A-Za-z]"
+            title="Enter your Last name"
+            placeholder="Last name"
+            required
+          />
+        </div>
+        <div class="EmailSignUp">
+          <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="example@test.com"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          title="Enter your email"
+          required
+        />
+        </div>
+        <div class="PwdSignUp">
+          <input
+            type="password"
+            id="email"
+            name="pw"
+            placeholder="Six or more characters"
+            pattern=".{6,}"
+            title="Six or more characters"
+            required
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="LoginButton">
+          <button type="button">Login</button>
+        </div>
+      </div>
+    </div>
+    <div id="overlay"></div>
+  </body>
+</html>
