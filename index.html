@@ -5,21 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login/Sign Up</title>
-    <link href="style.css" rel="stylesheet" />
-    <script defer src="login.js"></script>
+    <link href="signup.css" rel="stylesheet" />
+    <link href="login.css" rel="stylesheet" />
+    <script defer src="signup.js"></script>
   </head>
   <body>
-    <div class="top">
+    <div class="container">
       <div class="image">
-        <img src="assets/cat-pixel.png" alt="logo" title="Facebook" />
       </div>
       <div class="title">
-        <h1 title="Facebook">Facebook</h1>
+        <div class="brand-title">Facebook</div>
       </div>
-    </div>
 
-    <div class="bottom">
-      <div class="form">
+    <!-- <div class="bottom"> -->
+      <div class="inputs">
         <div class="EmailLogin">
           <label for="email">EMAIL</label>
           <input
@@ -49,12 +48,9 @@
         <div class="LoginButton">
           <button type="button">Login</button>
         </div>
-        <hr />
-        <!-- <div class="SignUpButton">
-          <a href="#"><button type="button"></button></a>
-        </div> -->
+        <!-- <hr /> -->
       </div>
-    </div>
+    <!-- </div> -->
     <!-- END OF FORM -->
 
     <button data-modal-target="#modal">Sign Up</button>
@@ -116,5 +112,6 @@
       </div>
     </div>
     <div id="overlay"></div>
+  </div>
   </body>
 </html>
