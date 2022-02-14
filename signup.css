@@ -1,6 +1,6 @@
-/* *, *::after, *::before {
+*, *::after, *::before {
     box-sizing: border-box;
-  } */
+  }
   
   .modal {
     position: fixed;
@@ -45,6 +45,9 @@
   
   .modal-body {
     padding: 10px 15px;
+  }
+  .modal-body > div {
+    margin:10px;
   }
   
   #overlay {

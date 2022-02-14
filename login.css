@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap");
 
 body {
   margin: 0;
@@ -39,7 +39,7 @@ body {
   margin-top: 10px;
   font-weight: 900;
   font-size: 1.8rem;
-  color: #1DA1F2;
+  color: #1da1f2;
   letter-spacing: 1px;
 }
 
@@ -48,7 +48,9 @@ body {
   margin-top: 30px;
 }
 
-label, input, button {
+label,
+input,
+button {
   display: block;
   width: 100%;
   padding: 0;
@@ -80,8 +82,9 @@ input {
 }
 
 button {
+  color: whitesmoke;
   margin-top: 20px;
-  background: #1DA1F2;
+  background: #1da1f2;
   height: 40px;
   border-radius: 20px;
   cursor: pointer;
@@ -92,4 +95,29 @@ button {
 
 button:hover {
   box-shadow: none;
+}
+
+.CreateButton {
+  display: flex;
+  flex-direction: row;
+  place-content: center;
+  padding-bottom: 5%;
+}
+
+.modal-footer button,
+.close-button {
+  display: block;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  margin: 0 !important;
+}
+.modal-footer button {
+  width: 50%;
+}
+.close-button {
+    color:black !important;
+  width: 25%;
+  justify-content: flex-end;
 }

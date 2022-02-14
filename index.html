@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login/Sign Up</title>
-    <link href="signup.css" rel="stylesheet" />
     <link href="login.css" rel="stylesheet" />
+    <link href="signup.css" rel="stylesheet" />
     <script defer src="signup.js"></script>
   </head>
   <body>
@@ -15,7 +15,6 @@
       </div>
         <div class="title">Facebook</div>
 
-    <!-- <div class="bottom"> -->
       <div class="inputs">
         <div class="EmailLogin">
           <label for="email">EMAIL</label>
@@ -46,10 +45,8 @@
         <div class="LoginButton">
           <button type="button">Login</button>
         </div>
-        <!-- <hr /> -->
       </div>
-    <!-- </div> -->
-    <!-- END OF FORM -->
+    <!-- END OF INPUTS -->
 
     <button data-modal-target="#modal">Sign Up</button>
     <div class="modal" id="modal">
@@ -87,7 +84,7 @@
           name="email"
           placeholder="example@test.com"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-          title="Enter your email"
+          title="Enter an email"
           required
         />
         </div>
@@ -98,14 +95,14 @@
             name="pw"
             placeholder="Six or more characters"
             pattern=".{6,}"
-            title="Six or more characters"
+            title="Enter a password"
             required
           />
         </div>
       </div>
       <div class="modal-footer">
-        <div class="LoginButton">
-          <button type="button">Login</button>
+        <div class="CreateButton">
+          <button type="button">Create Account!</button>
         </div>
       </div>
     </div>
