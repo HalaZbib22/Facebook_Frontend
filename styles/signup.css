@@ -66,3 +66,9 @@
     opacity: 1;
     pointer-events: all;
   }
+
+  .status {
+    font-size: 0.8rem;
+    text-align: center;
+    color: red;
+  }

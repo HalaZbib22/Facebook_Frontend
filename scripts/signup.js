@@ -1,36 +1,33 @@
-const openModalButtons = document.querySelectorAll('[data-modal-target]');
-const closeModalButtons = document.querySelectorAll('[data-close-button]');
-const overlay = document.getElementById('overlay')
+const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
 
-openModalButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal = document.querySelector(button.dataset.modalTarget);
-    openModal(modal)
-  })
-})
 
-overlay.addEventListener('click', () => {
-  const modals = document.querySelectorAll('.modal.active')
-  modals.forEach(modal => {
-    closeModal(modal)
-  })
-})
+const signUp = async () => {
+    let first_name = document.getElementById('FN').value
+    let last_name = document.getElementById('LN').value
+    let email = document.getElementById('signupEmail').value
+    let pass = document.getElementById('signupPassword').value
+    //validate input
+    if (!email || !pass || !validateEmail(email) || !first_name || !last_name) { // add || pass.length < 6 
+        document.querySelector('.modal-footer .status').textContent = "Please enter the above correctly"
+        return;
+    }
 
-closeModalButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal = button.closest('.modal')
-    closeModal(modal)
-  })
-})
-
-function openModal(modal) {
-  if (modal == null) return
-  modal.classList.add('active')
-  overlay.classList.add('active')
+    let request = {
+        "email": email,
+        "name": `${first_name} ${last_name}`,
+        "password": pass
+    }
+    // api call
+    let res = await axios.post('http://localhost/facebook-api/api/signup.php', request)
+    if (res.message) {
+        document.querySelector('.modal-footer .status').textContent = res.message
+    }
 }
 
-function closeModal(modal) {
-  if (modal == null) return
-  modal.classList.remove('active')
-  overlay.classList.remove('active')
-}
+document.querySelector('.CreateButton button').addEventListener('click', signUp)
