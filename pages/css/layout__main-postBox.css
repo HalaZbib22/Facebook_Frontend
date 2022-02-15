@@ -61,3 +61,8 @@
 .layout__main-postBox-button:hover{
     cursor:pointer;
 }
+
+.post-response {
+    align-self: center;
+    margin: 0 10px 5px  0;
+}
