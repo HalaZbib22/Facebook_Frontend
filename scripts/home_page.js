@@ -1,7 +1,8 @@
 const base_url = 'http://localhost/facebook-api/api'
 
 const postStatus = async () => {
-    let status = document.querySelector('.layout__main-postBox-input input').value
+    let input = document.querySelector('.layout__main-postBox-input input')
+    let status = input.value
     let notify = document.querySelector('.post-response')
     //validate input
     if (!status) {
@@ -19,6 +20,7 @@ const postStatus = async () => {
     if (res.message) {
         notify.textContent = res.message
         notify.style.color = "rgb(0, 216, 29)"
+        input.value = ''
     }
 }
 
