@@ -61,6 +61,15 @@
 
 .posts__post__footer span{
     margin-top: 10px;
-    padding-right: 92px;
+    padding-right: 10px;
 }
 
+.posts__post__footer a{
+    text-decoration: none;
+    color: #14171a;
+}
+
+.posts__post__footer a:hover{
+    text-decoration: none;
+    color: #1b94e0;
+}

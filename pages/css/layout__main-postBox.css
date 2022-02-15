@@ -66,3 +66,10 @@
     align-self: center;
     margin: 0 10px 5px  0;
 }
+
+.feed-notification {
+    display: none;
+    color: rgb(192, 4, 4);
+    text-align: center;
+    padding: 10px;
+}
