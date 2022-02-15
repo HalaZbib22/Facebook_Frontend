@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login/Sign Up</title>
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/100/000000/facebook-new.png">
     <link href="styles/login.css" rel="stylesheet" />
     <link href="styles/signup.css" rel="stylesheet" />
-    <script defer src="scripts/signup.js"></script>
   </head>
   <body>
     <div class="container">
@@ -33,7 +33,7 @@
           <label for="password">PASSWORD</label>
           <input
             type="password"
-            id="email"
+            id="password"
             name="pw"
             placeholder="Six or more characters"
             pattern=".{6,}"
@@ -41,6 +41,8 @@
             required
           />
         </div>
+
+        <div class="notification"></div>
 
         <div class="LoginButton">
           <button type="button">Login</button>
@@ -80,7 +82,7 @@
         <div class="EmailSignUp">
           <input
           type="email"
-          id="email"
+          id="signupEmail"
           name="email"
           placeholder="example@test.com"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
@@ -91,7 +93,7 @@
         <div class="PwdSignUp">
           <input
             type="password"
-            id="email"
+            id="signupPassword"
             name="pw"
             placeholder="Six or more characters"
             pattern=".{6,}"
@@ -108,5 +110,8 @@
     </div>
     <div id="overlay"></div>
   </div>
+  <script src="scripts/axios.min.js"></script>
+  <script defer src="scripts/signup.js"></script>
+  <script src="scripts/login.js"></script>
   </body>
 </html>
