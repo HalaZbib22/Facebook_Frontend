@@ -1,0 +1,8 @@
+.layout__right-sidebar{
+    padding-top: 70px;
+    padding-left: 25px;
+    width: 350px;
+}
+.layout__right-sidebar-container::-webkit-scrollbar{  /* to remove scrollbar */
+    display: none;
+}

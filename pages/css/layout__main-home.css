@@ -1,0 +1,36 @@
+.layout__main-home{
+    display: flex;
+    /* display: grid; */
+    border: 1px solid #e6ecf0;
+    padding-left: 15px;;
+    padding-bottom: 17px;;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    height: 45px;
+    width: 100%;
+    justify-content: space-between;
+    margin-right: 200px;;
+    border-bottom-color: white;
+
+}
+
+.layout__main-home h2:hover{
+    cursor: pointer;
+}
+
+.layout__main-home h2{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.layout__main-home .material-icons{
+    color: black;
+    /* padding-left: 70px;; */
+    margin-top: 20px;;
+    margin-right: 750px;;
+}
+
+.layout__main-home span:hover{
+    cursor: pointer;
+}

@@ -1,0 +1,30 @@
+.layout{
+    display: grid;
+    
+    grid-template-columns: 200px auto 400px;
+    /* grid-template-columns: 200px 400px 200px; */
+    /* grid-template-columns: auto auto  auto; */
+    margin: 0 auto;
+    max-width: 1150px;
+    overflow-x: hidden;
+}
+
+
+.layout__main{
+    margin-left: 0px;
+    /* padding-left: 40px;; */
+
+}
+
+.layout__right-sidebar{
+    /* position: fixed; */
+    width: 280px;
+    padding-right: 90px;;
+}
+
+.layout__left-sidebar{
+    /* margin-right: 0px;;
+    padding-right: 10px;;
+    width: 200px; */
+    padding-left: 40px;;
+}

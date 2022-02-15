@@ -1,0 +1,30 @@
+.search{
+    display: flex;
+    background: #f5f8fa;
+    border: 1px solid #f5f8fa;
+    border-radius: 40px;
+    margin-top: 0px;
+    margin-left: 24.6px;
+    /* margin-left: 22.6px; */
+    /* width: 22.10%; */
+    width: 350px;
+    position: fixed;
+}
+
+.search input{
+    border: 1px solid #f5f8fa;
+    background-color: #f5f8fa;
+    font-weight: 400;
+    font-size: 15px;
+    padding: 12px;
+    outline: none;
+}
+
+.widgets__searchIcon{
+    padding-left: 12px;;
+    color: rgb(83, 100, 113);
+    padding-top:12px;
+    padding-left:18px;
+    padding-right: 5px;
+    padding-bottom: 12px;
+}

@@ -1,0 +1,11 @@
+.logo{
+    height: 28px;
+    filter: invert(47%) sepia(85%) saturate(1253%) hue-rotate(176deg) brightness(97%) contrast(96%);
+    padding: 10px;
+    position: fixed;
+    margin-left: 14px;
+}
+
+.logo:hover{
+    cursor: pointer;
+}
