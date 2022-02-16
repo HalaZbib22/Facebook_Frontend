@@ -11,7 +11,7 @@ const login = async () => {
     let email = document.getElementById('email').value
     let pass = document.getElementById('password').value
     //validate input
-    if (!email || !pass || !validateEmail(email) ) { // add || pass.length < 6 
+    if (!email || !pass || !validateEmail(email) || pass.length < 6 ) {
         document.querySelector('.notification').textContent = "Please enter the above correctly"
         return;
     }
@@ -35,7 +35,7 @@ const login = async () => {
     localStorage.setItem("created_at", res.created_at);
 
     // redirect to home page
-    location.replace("/pages/home.html")
+    location.replace("http://localhost/Facebook_frontEnd/pages/home.html")
 
 }
 
