@@ -97,6 +97,90 @@ const goToFriends = async e => {
     location.href = "http://localhost/Facebook_frontEnd/pages/friend.html"
 }
 
+const getRequests = () => {
+    let container = document.querySelector('.requests-container')
+
+    let request = {
+        token: localStorage.getItem('token')
+        }
+    
+        let res = await axios.post('', request)
+    if (res.message) {
+        notify.textContent = res.message
+        notify.style.display = "block"
+        return;
+    } else if (res.length === 0) {
+        notify.textContent = "Notifications are empty"
+        notify.style.display = "block"
+    }
+
+    res.forEach(friend => {
+        container.innerHTML += `
+        <div  class="posts">
+        <img src="${friend.image}" alt="picture" class="posts__author-logo" onerror="this.onerror=null;this.src='../assets/placeholder.png';"/>
+        <div class="posts__main">
+          <div class="posts__header">
+          <div class="posts__author-name">${friend.name}</div>
+          <div class="posts__author-username">${friend.email}</div>
+            <div class="posts__publish-time">Requested at ${friend.added_at}</div>
+          </div>
+          <div class="posts__post__footer">
+            <div id="${friend.request_id}" class="action-buttons">
+                <a class="accept-button">Accept</a>
+                <a class="reject-button">Reject</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        `
+    });
+
+}
+
+const acceptFriend = async (e) => {
+    let record_id = parseInt(e.target.parentNode.id)
+    let notify = document.querySelector('.requests-notf')
+    let payload = {
+        token: localStorage.getItem('token'),
+        friend_id: record_id,
+        request: "accepted"
+    }
+    let res = await axios.post(`${base_url}/users/accept_friend.php`, payload)
+    if (res.message === "Accepted") {
+        notify.textContent = res.message
+        e.target.parentNode.parentNode.parentNode.parentNode.style.display = "none"
+        notify.style.display = "block"
+        notify.style.color = "green"
+        return;
+    } else {
+        notify.textContent = res.message
+        notify.style.display = "block"
+        notify.style.color = "red"
+    }
+}
+
+const rejectFriend = async (e) => {
+    let record_id = parseInt(e.target.parentNode.id)
+    let notify = document.querySelector('.requests-notf')
+    let payload = {
+        token: localStorage.getItem('token'),
+        friend_id: record_id,
+        request: "pending"
+    }
+    let res = await axios.post(`${base_url}/users/remove_friend.php`, payload)
+    if (res.message === "Removed") {
+        notify.textContent = res.message
+        e.target.parentNode.parentNode.parentNode.parentNode.style.display = "none"
+        notify.style.display = "block"
+        notify.style.color = "green"
+        return;
+    } else {
+        notify.textContent = res.message
+        notify.style.display = "block"
+        notify.style.color = "red"
+    }
+}
+
 
 const main = async () => {
     await document.querySelector('.layout__main-postBox-PostButton').addEventListener('click', postStatus)
