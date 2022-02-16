@@ -1,69 +1,58 @@
 const base_url = 'http://localhost/facebook-api/api'
 
-const postStatus = async () => {
-    let input = document.querySelector('.layout__main-postBox-input input')
-    let status = input.value
-    let notify = document.querySelector('.post-response')
-    //validate input
-    if (!status) {
-        notify.textContent = "Please fill the status"
-        notify.style.color = "rgb(192, 4, 4)"
-        return;
-    }
-
+const setProfile = async () => {
     let request = {
         token: localStorage.getItem('token'),
-        content: status
+        friend_id: localStorage.getItem('friend_id')
     }
-    
-    let res = await axios.post(`${base_url}/statuses/post_status.php`, request)
-    if (res.message) {
-        notify.textContent = res.message
-        notify.style.color = "rgb(0, 216, 29)"
-        input.value = ''
-    }
+    let res = await axios.post(`${base_url}/users/get_one.php`, request)
+
+    document.getElementById('user_name').textContent = res.name
+    localStorage.setItem('friend_name', res.name)
+    document.getElementById('user_email').textContent = res.email
+    localStorage.setItem('friend_email', res.email)
+    document.getElementById('user_date').textContent = res.created_at
 }
 
-
-const getFeed = async () => {
+const getFriendsPosts = async () => {
     let posts = document.querySelector('.posts-container')
-    let notify = document.querySelector('.feed-notification')
+    let notify = document.querySelector('.posts-notification')
     let request = {
-        token: localStorage.getItem('token')
+        token: localStorage.getItem('token'),
+        friend_id: parseInt(localStorage.getItem('friend_id'))
     }
-    
-    let res = await axios.post(`${base_url}/statuses/get_feed.php`, request)
+    console.log(request)
+
+    let res = await axios.post(`${base_url}/statuses/get_friends_statuses.php`, request)
     if (res.message) {
         notify.textContent = res.message
         notify.style.display = "block"
         return;
     } else if (res.length === 0) {
-        notify.textContent = "Feed is empty"
+        notify.textContent = "No Posts Found"
         notify.style.display = "block"
     }
 
     //adding posts to html NEED TO FIX image src from api
     res.forEach(post => {
         posts.innerHTML += `
-      <div  class="posts">
+        <div  class="posts">
         <img src="${post.image}" alt="picture" class="posts__author-logo" onerror="this.onerror=null;this.src='../assets/placeholder.png';"/>
         <div class="posts__main">
           <div class="posts__header">
-            <div class="posts__author-name">${post.name}</div>
-            <div class="posts__author-username">${post.email}</div>
+            <div class="posts__author-name">${localStorage.getItem('friend_name')}</div>
+            <div class="posts__author-username">${localStorage.getItem('friend_email')}</div>
             <div class="posts__publish-time">${post.created_at}</div>
           </div>
           <div class="posts__content">${post.content}</div>
           <div class="posts__post__footer">
             <a  id="${post.id}" class="like-toggler"><span id="${post.is_liked}" class="${post.is_liked ? 'fas' : 'far'} fa-heart" style="${post.is_liked ? 'color:red' : ''}"></span><span>${post.likes_count}</span></a>
-            <a id="${post.user_id}" class="profile-button">Profile</a>
-            </div>
+          </div>
         </div>
       </div>
         `
     });
 }
-
 
 const toggleLikeStatus = async (e) => {
     // change like with api call and icon on the posts id in html and likes count
@@ -91,20 +80,11 @@ const toggleLikeStatus = async (e) => {
 
 }
 
-const goToFriends = async e => {
-    let friend_id = parseInt(e.target.id)
-    await localStorage.setItem('friend_id', friend_id)
-    location.href = "http://localhost/Facebook_frontEnd/pages/friend.html"
-}
-
-
 const main = async () => {
-    await document.querySelector('.layout__main-postBox-PostButton').addEventListener('click', postStatus)
-
-    await getFeed()
-
+    await setProfile()
+    await getFriendsPosts()
+    
     document.querySelectorAll('.like-toggler .fa-heart').forEach(button => button.addEventListener('click', toggleLikeStatus) )
-    document.querySelectorAll('.profile-button').forEach(button => button.addEventListener('click', goToFriends) )
 }
 
 window.onload = main
