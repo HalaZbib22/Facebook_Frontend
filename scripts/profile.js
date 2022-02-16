@@ -4,7 +4,7 @@ const setProfile = () => {
 
     document.getElementById('user_name').textContent = localStorage.getItem('name')
     document.getElementById('user_email').textContent = localStorage.getItem('email')
-    document.getElementById('user_date').textContent = 'Joined At: '+localStorage.getItem('created_at')
+    document.getElementById('user_date').textContent = 'Joined At: ' + localStorage.getItem('created_at')
 }
 
 const changeMainDiv = e => {
@@ -103,6 +103,60 @@ const editPost = async (e) => {
 }
 
 const getFriends = async () => {
+    let friends = document.querySelector('#friends-container')
+    let notify = document.querySelector('.friends-notification')
+    let request = {
+        token: localStorage.getItem('token')
+    }
+
+    let res = await axios.post(`${base_url}/users/friendlist.php`, request)
+    console.log(res)
+    if (res.message) {
+        notify.textContent = res.message
+        notify.style.display = "block"
+        return;
+    } else if (res.length === 0) {
+        notify.textContent = "No Friends added yet"
+        notify.style.display = "block"
+    }
+
+    //adding friends to html NEED TO FIX image src from api
+    res.forEach(friend => {
+        friends.innerHTML += `
+        
+        <div class="layout__main-postBox-input">
+        <img src=" " alt="ProfilePic" onerror="this.onerror=null;this.src='../assets/placeholder.png';" />
+        <div class="posts__main">
+            <div class="posts__header">
+                <div id="user_name" class="posts__author-name">${friend.name}</div>
+                <div id="user_date" class="posts__publish-time"></div>
+            </div>
+            <div id="user_email" class="posts__author-username"></div>
+            <div id="${friend.request_id}" class="action-buttons">
+            <a class="delete-button">Delete</a>
+            <a class="edit-button">Edit</a>
+        </div>
+        </div>
+    </div>
+
+    
+      <div  class="posts">
+        <div class="posts__main">
+          <div class="posts__header">
+            <div class="posts__publish-time">${post.created_at}</div>
+          </div>
+          <div class="posts__content"id="content${post.id}" contenteditable="true">${post.content}</div>
+          <div class="posts__post__footer">
+            <span class="far fa-heart" ></span><span>${post.likes_count}</span>
+            <div id="${post.id}" class="action-buttons">
+                <a class="delete-button">Delete</a>
+                <a class="edit-button">Edit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        `
+    });
 }
 
 const getBlocks = async () => {
