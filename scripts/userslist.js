@@ -1,5 +1,10 @@
-
+const AllUsers = async () => {
+    let payload = {
+        token: localStorage.getItem("token")
+    }
     // api call
-    let res = axios.post('http://localhost/facebook-api/api/get_all.php')
-    // insert them
-
+    let res = await axios.get('http://localhost/facebook-api/api/friendlist.php',payload)
+    if (res.message) {
+        document.querySelector('.modal-footer .status').textContent = res.message
+    }
+}

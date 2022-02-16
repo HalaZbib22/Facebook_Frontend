@@ -1,6 +1,5 @@
 .layout__main-home{
-    display: flex;
-    /* display: grid; */
+    /* display: flex;
     border: 1px solid #e6ecf0;
     padding-left: 15px;;
     padding-bottom: 17px;;
@@ -8,11 +7,17 @@
     top: 0;
     background-color: white;
     height: 45px;
-    width: 100%;
-    justify-content: space-between;
-    margin-right: 200px;;
-    border-bottom-color: white;
-
+    margin:0;
+    border-bottom-color: white; */
+    /* display: grid; */
+        position: sticky;
+        justify-content: space-between;
+        margin: 0;
+        padding:0;
+        width: 100%;
+        /* z-index: 100; */
+        /* padding: 15px 20px; */
+      
 }
 
 .layout__main-home h2:hover{
