@@ -52,6 +52,7 @@
     position: sticky;
     /* overflow-wrap: break-word; */
     /* white-space: normal; */
+    background-color: #e6ecf0;
     width:100vw;
     min-width: 350px;
   }
