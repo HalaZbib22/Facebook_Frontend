@@ -150,7 +150,7 @@
         <div class="layout__main-postBox">
           <form>
             <div class="layout__main-postBox-input">
-              <img src=" " alt="ProfilePic" />
+              <img src=" " alt="ProfilePic" onerror="this.onerror=null;this.src='../assets/placeholder.png';"/>
               <input type="text" placeholder="What's happening?" />
             </div>
             <div class="layout__main-postBox-button">
@@ -162,19 +162,9 @@
           </form>
         </div>
         <!-- POSTS -->
-        <div class="posts">
-          <img src=" " alt="profile" class="posts__author-logo" />
-          <div class="posts__main">
-            <div class="posts__header">
-              <div class="posts__author-name">Becki (& Chris)</div>
-              <div class="posts__author-username">@beckiandchris</div>
-              <div class="posts__publish-time">38m</div>
-            </div>
-            <div class="posts__content">Thank You</div>
-            <div class="posts__post__footer">
-              <span class="far fa-heart"></span>
-            </div>
-          </div>
+        <p class="feed-notification"></p>
+        <div class="posts-container">
+
         </div>
         <!-- END OF POSTS -->
       </div>
@@ -218,6 +208,6 @@
     <!-- END OF LAYOUT -->
     <script defer src="../scripts/modal.js"></script>
     <script src="../scripts/axios.min.js"></script>
-    <script src="../scripts/post_status.js"></script>
+    <script src="../scripts/home_page.js"></script>
   </body>
 </html>

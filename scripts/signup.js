@@ -1,4 +1,4 @@
-const validateEmail = (email) => {
+const validateSignupEmail = (email) => {
     return String(email)
       .toLowerCase()
       .match(
@@ -12,9 +12,12 @@ const signUp = async () => {
     let last_name = document.getElementById('LN').value
     let email = document.getElementById('signupEmail').value
     let pass = document.getElementById('signupPassword').value
+    let is_email_valid = validateSignupEmail(email)
+    let notify = document.querySelector('.modal-footer .status')
     //validate input
-    if (!email || !pass || !validateEmail(email) || !first_name || !last_name) { // add || pass.length < 6 
-        document.querySelector('.modal-footer .status').textContent = "Please enter the above correctly"
+    if (!email || !pass || !is_email_valid || !first_name || !last_name || pass.length < 6 ) {
+        notify.textContent = "Please enter the above correctly"
+        notify.style.color = "red"
         return;
     }
 
@@ -27,6 +30,12 @@ const signUp = async () => {
     let res = await axios.post('http://localhost/facebook-api/api/signup.php', request)
     if (res.message) {
         document.querySelector('.modal-footer .status').textContent = res.message
+        document.getElementById('FN').value = ''
+        document.getElementById('LN').value = ''
+        document.getElementById('signupEmail').value = ''
+        document.getElementById('signupPassword').value = ''
+
+        notify.style.color = "green"
     }
 }
 
