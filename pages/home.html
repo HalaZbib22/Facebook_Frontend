@@ -55,7 +55,8 @@
           <img src="./svg/home.svg" class="navbar-item-icon" />
         </div>
         <div class="navbar-item">
-          <a class="NavBar-Button" id="NavBar-Button" data-modal-target="#modal"><img
+          <a class="openBtn" onclick="openNotifications()">
+          <img
             src="./svg/notifications.svg"
             class="navbar-item-icon"
           /></a>
@@ -67,8 +68,7 @@
           />
         </div>
         <div class="navbar-item">
-          <!-- <a class="NavBar-Button" class="trigger" id="NavBar-Button" data-modal-target="#modal"> -->
-           <a  class="openBtn" onclick="openSearch()"><img
+          <a class="NavBar-Button" id="NavBar-Button" data-modal-target="#modal"><img
             src="./svg/search.svg"
             class="navbar-item-icon"
           /></a>
@@ -78,23 +78,19 @@
     <!-- END OF NAVBAR -->
 
     <div id="myOverlay" class="overlay">
-      <span class="closebtn" onclick="closeSearch()" title="Close Overlay">&times;</span>
+      <span class="closebtn" onclick="closeNotifications()" title="Close Overlay">&times;</span>
       <div class="overlay-content">
-        <form action="/action_page.php">
+        <!-- <form action="/action_page.php">
           <input type="text" placeholder="Search..." name="search">
           <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
+        </form> -->
       </div>
     </div>
 
-    <!-- MODAL SEARCH -->
+    <!-- MODAL NOTIFICATIONS -->
     <!-- <div class="modal" id="modal">
       <div class="modal-header">
-        <div class="title">SEARCH</div>
-        <div class="Search-Bar">
-          <span class="material-icons search-icon widget">search</span>
-          <input type="text" placeholder="Search friends" />
-        </div>
+        <div class="title">NOTIFICATIONS</div>
         <button data-close-button id="close-button" class="close-button">&times;</button>
       </div>
       <div class="modal-body">
@@ -104,16 +100,16 @@
       </div>
     </div>
     <div id="overlay"></div> -->
-<!-- END MODAL SEARCH -->
+<!-- END MODAL NOTIFICATIONS -->
 
-<!-- MODAL NOTIFICATIONS -->
+    <!-- MODAL SEARCH -->
     <div class="modal" id="modal">
       <div class="modal-header">
-        <div class="title">NOTIFICATIONS</div>
-        <!-- <div class="Search-Bar">
-          <span class="material-icons search-icon widget">NOTIFICATIONS</span>
+        <div class="title">SEARCH</div>
+        <div class="Search-Bar">
+          <span class="material-icons search-icon widget">search</span>
           <input type="text" placeholder="Search friends" />
-        </div> -->
+        </div>
         <button data-close-button id="close-button" class="close-button">&times;</button>
       </div>
       <div class="modal-body">
@@ -123,7 +119,7 @@
       </div>
     </div>
     <div id="overlay"></div>
-<!-- END MODAL NOTIFICATIONS -->
+<!-- END MODAL SEARCH -->
 
       <!-- START LEFT SIDEBAR -->
       <div class="layout__left-sidebar">

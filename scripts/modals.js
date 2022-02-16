@@ -1,7 +1,7 @@
-function openSearch() {
+function openNotifications() {
     document.getElementById("myOverlay").style.display = "block";
   }
   
-  function closeSearch() {
+  function closeNotifications() {
     document.getElementById("myOverlay").style.display = "none";
   }
