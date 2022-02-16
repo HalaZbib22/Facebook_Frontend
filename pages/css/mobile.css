@@ -76,5 +76,9 @@
     filter: invert(57%) sepia(97%) saturate(3412%) hue-rotate(179deg) brightness(102%) contrast(90%);
   }
 
+  .NavBar-Button:hover{
+    cursor: pointer;
+  }
+
   /* END OF NAVBAR STYLING */
 }

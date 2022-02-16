@@ -36,6 +36,7 @@
       href="./css/layout__main-postBox.css"
     />
     <link rel="stylesheet" type="text/css" href="./css/mobile.css" />
+    <link href="./css/modal.css" rel="stylesheet" />
   </head>
   <body>
     <!-- LAYOUT -->
@@ -65,36 +66,41 @@
           />
         </div>
         <div class="navbar-item">
-          <a href="#modal" data-modal-target="#modal"><img
+          <a class="NavBar-Button" id="NavBar-Button" data-modal-target="#modal"><img
             src="./svg/search.svg"
             class="navbar-item-icon"
           /></a>
         </div>
       </div>
-<!-- MODAL -->
-
-<div class="modal" id="modal">
-  <div class="modal-header">
-    <div class="title">Sign Up!</div>
-    <button data-close-button class="close-button">&times;</button>
-  </div>
-  <div class="modal-body">
-    <div class="UsersList">
-    </div>
-  </div>
-  <div class="modal-footer">
-    <div class="status"></div>
-    <div class="CreateButton">
-      <button type="button">Create Account!</button>
-    </div>
-  </div>
-</div>
-<div id="overlay"></div>
-
-<!-- END MODAL -->
-
     </div>
     <!-- END OF NAVBAR -->
+
+    <!-- MODAL SEARCH -->
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <div class="title">SEARCH</div>
+        <div class="Search-Bar">
+          <span class="material-icons search-icon widget">search</span>
+          <input type="text" placeholder="Search friends" />
+        </div>
+        <button data-close-button class="close-button">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="UsersList" id="UsersList">
+          <!-- fetch and add the users here -->
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <div class="status"></div>
+        <div class="CreateButton">
+          <button type="button">Create Account!</button>
+        </div>
+      </div> -->
+    </div>
+    <div id="overlay"></div>
+
+<!-- END MODAL SEARCH -->
+
       <!-- START LEFT SIDEBAR -->
       <div class="layout__left-sidebar">
         <img
@@ -196,6 +202,7 @@
       <!-- END OF RIGHT SIDEBAR -->
     </div>
     <!-- END OF LAYOUT -->
+    <script defer src="../scripts/modal.js"></script>
     <script src="../scripts/axios.min.js"></script>
     <script src="../scripts/post_status.js"></script>
   </body>

@@ -72,3 +72,39 @@
     text-align: center;
     /* color: red; */
   }
+
+  #NavBar-Button.active{
+    color: #1da0f2;
+    filter: invert(57%) sepia(97%) saturate(3412%) hue-rotate(179deg) brightness(102%) contrast(90%);
+  }
+
+.Search-Bar{
+    display: flex;
+    background: #f5f8fa;
+    border: 1px solid #f5f8fa;
+    border-radius: 40px;
+    margin-top: 0px;
+    margin-left: 24.6px;
+    margin-left: 22.6px;
+    width: 22.10%;
+    width: 340px;
+    justify-content: center;
+}
+
+.Search-Bar input{
+    border: 1px solid #f5f8fa;
+    background-color: #f5f8fa;
+    font-weight: 400;
+    font-size: 15px;
+    padding: 12px;
+    outline: none;
+}
+
+  .widget{
+    padding-left: 12px;;
+    color: rgb(83, 100, 113);
+    padding-top:12px;
+    padding-left:18px;
+    padding-right: 5px;
+    padding-bottom: 12px;
+}
