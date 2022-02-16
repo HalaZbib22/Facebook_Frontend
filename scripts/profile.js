@@ -4,7 +4,7 @@ const setProfile = () => {
 
     document.getElementById('user_name').textContent = localStorage.getItem('name')
     document.getElementById('user_email').textContent = localStorage.getItem('email')
-    document.getElementById('user_date').textContent = localStorage.getItem('created_at')
+    document.getElementById('user_date').textContent = 'Joined At: '+localStorage.getItem('created_at')
 }
 
 
@@ -45,7 +45,7 @@ const getPosts = async () => {
           <div class="posts__header">
             <div class="posts__publish-time">${post.created_at}</div>
           </div>
-          <div class="posts__content">${post.content}</div>
+          <div class="posts__content"id="content${post.id}" contenteditable="true">${post.content}</div>
           <div class="posts__post__footer">
             <span class="far fa-heart" ></span><span>${post.likes_count}</span>
             <div id="${post.id}" class="action-buttons">
@@ -80,7 +80,27 @@ const deletePost = async (e) => {
     }
 }
 
-const editPost = async () => {
+const editPost = async (e) => {
+    let post = parseInt(e.target.parentNode.id)
+    let notify = document.querySelector('.posts-notification')
+    let text = document.getElementById(`content${post}`).textContent
+    console.log(text)
+    let request = {
+        token: localStorage.getItem('token'),
+        status_id: post,
+        content: text
+    }
+    let res = await axios.post(`${base_url}/statuses/edit_status.php`, request)
+    if (res.message === "Status Updated") {
+        notify.textContent = res.message
+        notify.style.display = "block"
+        notify.style.color = "green"
+        return;
+    } else {
+        notify.textContent = res.message
+        notify.style.display = "block"
+        notify.style.color = "red"
+    }
 }
 
 const getFriends = async () => {
