@@ -7,7 +7,6 @@ const setProfile = () => {
     document.getElementById('user_date').textContent = 'Joined At: '+localStorage.getItem('created_at')
 }
 
-
 const changeMainDiv = e => {
     let nav_id = e.target.id
 
@@ -108,9 +107,6 @@ const getFriends = async () => {
 
 const getBlocks = async () => {
 }
-
-setProfile()
-document.querySelectorAll('.topnav a').forEach(e => e.addEventListener('click', changeMainDiv))
 
 const main = async () => {
     setProfile()

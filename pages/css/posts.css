@@ -60,6 +60,7 @@
 }
 
 .posts__post__footer {
+    margin: 10px;
     min-width: 100%;
     display: flex;
     align-items: center;
