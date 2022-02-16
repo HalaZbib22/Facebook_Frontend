@@ -100,3 +100,26 @@
      color: rgb(0, 0, 0) !important;
     background: #ff1100;
   }
+
+  .unblock-button {
+    background: transparent;
+    color: #ff1100;
+    border-style: solid;
+    border-color: #ff1100;
+    cursor: pointer;
+    border-width: 0.5px;
+    border-radius: 10px;
+    text-decoration: none ; 
+    padding: 5px 10px;
+    margin: 5px;
+  }
+  
+  .unblock-button:active {
+    border-radius: 22px;
+  }
+
+  .unblock-button:hover {
+    text-decoration: none !important; 
+     color: rgb(0, 0, 0) !important;
+    background: #ff1100;
+  }

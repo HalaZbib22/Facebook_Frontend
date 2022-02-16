@@ -110,7 +110,6 @@ const getFriends = async () => {
     }
 
     let res = await axios.post(`${base_url}/users/friendlist.php`, request)
-    console.log(res)
     if (res.message) {
         notify.textContent = res.message
         notify.style.display = "block"
@@ -165,6 +164,42 @@ const removeFriend = async (e) => {
 }
 
 const getBlocks = async () => {
+    let blocks = document.querySelector('#blocks-container')
+    let notify = document.querySelector('.blocks-notification')
+    let request = {
+        token: localStorage.getItem('token')
+    }
+
+    let res = await axios.post(`${base_url}/users/blocklist.php`, request)
+    if (res.message) {
+        notify.textContent = res.message
+        notify.style.display = "block"
+        return;
+    } else if (res.length === 0) {
+        notify.textContent = "No Blocked Users"
+        notify.style.display = "block"
+    }
+
+    //adding blocked users to html NEED TO FIX image src from api
+    res.forEach(user => {
+        blocks.innerHTML += `
+        <div  class="posts">
+        <img src="${user.image}" alt="picture" class="posts__author-logo" onerror="this.onerror=null;this.src='../assets/placeholder.png';"/>
+        <div class="posts__main">
+          <div class="posts__header">
+          <div class="posts__author-name">${user.name}</div>
+          <div class="posts__author-username">${user.email}</div>
+            <div class="posts__publish-time">Blocked at ${user.blocked_at}</div>
+          </div>
+          <div class="posts__post__footer">
+            <div id="${user.id}" class="action-buttons">
+                <a class="unblock-button">Unblock</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        `
+    });
 }
 
 const removeBlock = async () => {
@@ -179,6 +214,7 @@ const main = async () => {
     document.querySelectorAll('.action-buttons .delete-button').forEach(button => button.addEventListener('click', deletePost))
     document.querySelectorAll('.action-buttons .edit-button').forEach(button => button.addEventListener('click', editPost))
     document.querySelectorAll('.action-buttons .remove-button').forEach(button => button.addEventListener('click', removeFriend))
+    document.querySelectorAll('.action-buttons .unblock-button').forEach(button => button.addEventListener('click', removeBlock))
 }
 
 window.onload = main
