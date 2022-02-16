@@ -9,7 +9,6 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -80,27 +79,8 @@
     <div id="myOverlay" class="overlay">
       <span class="closebtn" onclick="closeNotifications()" title="Close Overlay">&times;</span>
       <div class="overlay-content">
-        <!-- <form action="/action_page.php">
-          <input type="text" placeholder="Search..." name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form> -->
       </div>
     </div>
-
-    <!-- MODAL NOTIFICATIONS -->
-    <!-- <div class="modal" id="modal">
-      <div class="modal-header">
-        <div class="title">NOTIFICATIONS</div>
-        <button data-close-button id="close-button" class="close-button">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="UsersList" id="UsersList"> -->
-          <!-- fetch and add the users here -->
-        <!-- </div>
-      </div>
-    </div>
-    <div id="overlay"></div> -->
-<!-- END MODAL NOTIFICATIONS -->
 
     <!-- MODAL SEARCH -->
     <div class="modal" id="modal">
@@ -133,10 +113,10 @@
             <img src="./svg/home.svg" class="sidebar-menu__item-icon" />Home
           </div>
           <div class="sidebar-menu__item">
-            <img
+            <a class="openBtn" onclick="openNotifications()"><img
               src="./svg/notifications.svg"
               class="sidebar-menu__item-icon"
-            />Notifications
+            /></a>Notifications
           </div>
           <div class="sidebar-menu__item">
             <img
@@ -178,8 +158,8 @@
       <!-- START OF RIGHT SIDEBAR -->
       <div class="layout__right-sidebar-container">
         <div class="search">
-          <span class="material-icons widgets__searchIcon">search</span>
-          <input type="text" placeholder="Search friends" />
+          <a class="NavBar-Button" id="NavBar-Button" data-modal-target="#modal"><span class="material-icons widgets__searchIcon">search</span>
+          <input type="text" placeholder="Search friends" /></a>
         </div>
         <div class="layout__right-sidebar">
           <div class="who-to-add">
