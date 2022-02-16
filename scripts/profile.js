@@ -26,7 +26,7 @@ const getPosts = async () => {
     let request = {
         token: localStorage.getItem('token')
     }
-    
+
     let res = await axios.post(`${base_url}/statuses/get_user_statuses.php`, request)
     if (res.message) {
         notify.textContent = res.message
@@ -47,12 +47,40 @@ const getPosts = async () => {
           </div>
           <div class="posts__content">${post.content}</div>
           <div class="posts__post__footer">
-            <a  id="${post.id}" ><span class="far fa-heart" ></span><span>${post.likes_count}</span></a>
+            <span class="far fa-heart" ></span><span>${post.likes_count}</span>
+            <div id="${post.id}" class="action-buttons">
+                <a class="delete-button">Delete</a>
+                <a class="edit-button">Edit</a>
+            </div>
           </div>
         </div>
       </div>
         `
     });
+}
+
+const deletePost = async (e) => {
+    let post = parseInt(e.target.parentNode.id)
+    let notify = document.querySelector('.posts-notification')
+    let request = {
+        token: localStorage.getItem('token'),
+        status_id: post
+    }
+    let res = await axios.post(`${base_url}/statuses/delete_status.php`, request)
+    if (res.message === "Status Deleted") {
+        notify.textContent = res.message
+        e.target.parentNode.parentNode.parentNode.style.display = "none"
+        notify.style.display = "block"
+        notify.style.color = "green"
+        return;
+    } else {
+        notify.textContent = res.message
+        notify.style.display = "block"
+        notify.style.color = "red"
+    }
+}
+
+const editPost = async () => {
 }
 
 const getFriends = async () => {
@@ -70,6 +98,8 @@ const main = async () => {
     await getFriends()
     await getBlocks()
     document.querySelectorAll('.topnav a').forEach(e => e.addEventListener('click', changeMainDiv))
+    document.querySelectorAll('.action-buttons .delete-button').forEach(button => button.addEventListener('click', deletePost))
+    document.querySelectorAll('.action-buttons .edit-button').forEach(button => button.addEventListener('click', editPost))
 }
 
 window.onload = main

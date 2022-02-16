@@ -31,3 +31,49 @@
   .main div.active {
     display: block;
 }
+
+.delete-button {
+    background: transparent;
+    color: #ff1100;
+    border-style: solid;
+    border-color: #ff1100;
+    cursor: pointer;
+    border-width: 0.5px;
+    border-radius: 10px;
+    text-decoration: none ; 
+    padding: 5px 10px;
+    margin: 5px;
+  }
+  
+  .delete-button:active {
+    border-radius: 22px;
+  }
+
+  .delete-button:hover {
+    text-decoration: none !important; 
+     color: rgb(0, 0, 0) !important;
+    background: #ff1100;
+  }
+
+  .edit-button {
+    background: transparent;
+    color: #2AA2F2;
+    border-style: solid;
+    border-color: #2AA2F2;
+    cursor: pointer;
+    border-width: 0.5px;
+    border-radius: 10px;
+    text-decoration: none; 
+    padding: 5px 10px;
+    margin: 5px;
+  }
+  
+  .edit-button:active {
+    border-radius: 22px;
+  }
+
+  .edit-button:hover {
+    text-decoration: none !important; 
+     color: rgb(0, 0, 0) !important;
+    background: #2AA2F2;
+  }

@@ -59,6 +59,12 @@
     color: #657786;
 }
 
+.posts__post__footer {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
 .posts__post__footer span{
     margin-top: 10px;
     padding-right: 10px;
@@ -70,6 +76,5 @@
 }
 
 .posts__post__footer a:hover{
-    text-decoration: none;
     color: #1b94e0;
 }
