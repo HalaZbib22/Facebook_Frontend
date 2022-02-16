@@ -103,7 +103,8 @@
         <button data-close-button id="close-button" class="close-button">&times;</button>
       </div>
       <div class="modal-body">
-        <div class="UsersList" id="UsersList">
+        <div id="users-container">
+
           <!-- fetch and add the users here -->
         </div>
       </div>
@@ -125,14 +126,14 @@
             </div>
         </a>
 
-        <a class="sidebar-Button" data-modal-target="#modal"><div class="sidebar-menu__item">
+        <a class="search-sidebar-Button" id="SB" data-modal-target="#modal"><div class="sidebar-menu__item">
           <img
             src="./svg/search.svg"
             class="sidebar-menu__item-icon"
           />SEARCH
         </div></a>
 
-        <a class="sidebar-Button" onclick="openNotifications()"><div class="sidebar-menu__item">
+        <a class="noti-sidebar-Button" id="NB" onclick="openNotifications()"><div class="sidebar-menu__item">
             <img
               src="./svg/notifications.svg"
               class="sidebar-menu__item-icon"
@@ -185,25 +186,8 @@
             <div class="who-to-add__block">
               <div class="who-to-add__heading">Who to add</div>
             </div>
-            <div class="who-to-add__block">
-              <img class="who-to-add__author-logo" src=" " alt="profile" />
-              <div class="who-to-add__content">
-                <div>
-                  <div class="who-to-add__author-name">Becki & (Chris)</div>
-                  <div class="who-to-add__author-slug">@beckiandchris</div>
-                </div>
-                <div class="who-to-add__button">Add</div>
-              </div>
-            </div>
-            <div class="who-to-add__block">
-              <img class="who-to-add__author-logo" src=" " alt="profile" />
-              <div class="who-to-add__content">
-                <div>
-                  <div class="who-to-add__author-name">Elixir Digest</div>
-                  <div class="who-to-add__author-slug">@elixirdigest</div>
-                </div>
-                <div class="who-to-add__button">Add</div>
-              </div>
+            <div class="who-to-add__block" id="users-container">
+              
             </div>
           </div>
         </div>
@@ -217,5 +201,6 @@
     <script src="../scripts/axios.min.js"></script>
     <script src="../scripts/home_page.js"></script>
     <script src="../scripts/nav.js"></script>
+    <script src="../scripts/userslist.js"></script>
   </body>
 </html>
