@@ -32,6 +32,7 @@ const login = async () => {
     localStorage.setItem("user_id", res.user_id);
     localStorage.setItem("name", res.name);
     localStorage.setItem("email", res.email);
+    localStorage.setItem("created_at", res.created_at);
 
     // redirect to home page
     location.replace("/pages/home.html")

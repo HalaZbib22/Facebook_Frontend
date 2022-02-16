@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="./css/global.css" />
+    <link rel="stylesheet" type="text/css" href="./css/layout__main-home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="./css/brand.css" />
+    <link rel="stylesheet" type="text/css" href="./css/sidebar-menu.css" />
+    <link rel="stylesheet" type="text/css" href="./css/posts.css" />
+    <link rel="stylesheet" type="text/css" href="./css/profile.css" />
+    <link rel="stylesheet" type="text/css" href="./css/layout__right-sidebar.css" />
+    <link rel="stylesheet" type="text/css" href="./css/layout__main-postBox.css" />
+</head>
+
+<body>
+    <!-- LAYOUT -->
+    <div class="layout">
+        <!-- START LEFT SIDEBAR -->
+        <div class="layout__left-sidebar">
+            <img src="https://img.icons8.com/material-outlined/96/000000/facebook.png" alt="facebook" class="logo" />
+            <div class="sidebar-menu">
+                <div class="sidebar-menu__item sidebar-menu__item--active">
+                    <img src="./svg/home.svg" class="sidebar-menu__item-icon" />Home
+                </div>
+                <div class="sidebar-menu__item">
+                    <img src="./svg/notifications.svg" class="sidebar-menu__item-icon" />Notifications
+                </div>
+                <div class="sidebar-menu__item">
+                    <img src="./svg/profile.svg" class="sidebar-menu__item-icon" />Profile
+                </div>
+            </div>
+        </div>
+        <!-- END LEFT SIDEBAR -->
+        <!-- START PROFILE SECTION -->
+        <div class="layout__main">
+            <div class="layout__main-home">
+                <h2>Profile</h2>
+            </div>
+
+            <div class="layout__main-postBox">
+                <div class="layout__main-postBox-input">
+                    <img src=" " alt="ProfilePic" onerror="this.onerror=null;this.src='../assets/placeholder.png';" />
+                    <div class="posts__main">
+                        <div class="posts__header">
+                            <div id="user_name" class="posts__author-name"></div>
+                            <div id="user_date" class="posts__publish-time"></div>
+                        </div>
+                        <div id="user_email" class="posts__author-username"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="topnav">
+                    <a id="posts-div" class="active" href="#">Posts</a>
+                    <a id="friends-div" href="#">Friends</a>
+                    <a id="blocks-div" href="#">Blocks</a>
+                </div>
+                <div class="main">
+                    <div class="active posts-div section">
+                        <!-- POSTS -->
+                        <p class="posts-notification "></p>
+                        <div id="posts-container">
+
+                        </div>
+                        <!-- END OF POSTS -->
+                    </div>
+                    <div class="friends-div section">Item 2 Content</div>
+                    <div class="blocks-div section">Item 3 Content</div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <script src="../scripts/axios.min.js"></script>
+    <script src="../scripts/profile.js"></script>
+</body>
+
+</html>
