@@ -54,10 +54,10 @@
           <img src="./svg/home.svg" class="navbar-item-icon" />
         </div>
         <div class="navbar-item">
-          <img
+          <a class="NavBar-Button" id="NavBar-Button" data-modal-target="#modal"><img
             src="./svg/notifications.svg"
             class="navbar-item-icon"
-          />
+          /></a>
         </div>
         <div class="navbar-item">
           <img
@@ -90,16 +90,30 @@
           <!-- fetch and add the users here -->
         </div>
       </div>
-      <!-- <div class="modal-footer">
-        <div class="status"></div>
-        <div class="CreateButton">
-          <button type="button">Create Account!</button>
-        </div>
-      </div> -->
     </div>
     <div id="overlay"></div>
 
 <!-- END MODAL SEARCH -->
+
+<!-- MODAL NOTIFICATIONS -->
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <div class="title">HALA</div>
+        <div class="Search-Bar">
+          <span class="material-icons search-icon widget">search</span>
+          <input type="text" placeholder="Search friends" />
+        </div>
+        <button data-close-button class="close-button">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="UsersList" id="UsersList">
+          <!-- fetch and add the users here -->
+        </div>
+      </div>
+    </div>
+    <div id="overlay"></div>
+
+<!-- END MODAL NOTIFICATIONS -->
 
       <!-- START LEFT SIDEBAR -->
       <div class="layout__left-sidebar">
