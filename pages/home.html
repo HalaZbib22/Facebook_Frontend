@@ -50,9 +50,11 @@
           alt="facebook"
           class="navbar-logo"
         />
-        <div class="navbar-item navbar-item--active">
-          <img src="./svg/home.svg" class="navbar-item-icon" />
-        </div>
+        <a href="http://localhost/Facebook_frontEnd/pages/home.html" id="top-home" style="text-decoration: none;">
+          <div class="navbar-item navbar-item--active nav-home">
+            <img src="./svg/home.svg" class="navbar-item-icon" />
+          </div>
+        </a>
         <div class="navbar-item">
           <a class="openBtn" onclick="openNotifications()">
           <img
@@ -60,12 +62,14 @@
             class="navbar-item-icon"
           /></a>
         </div>
-        <div class="navbar-item">
-          <img
-            src="./svg/profile.svg"
-            class="navbar-item-icon"
-          />
-        </div>
+        <a href="http://localhost/Facebook_frontEnd/pages/profile.html" id="top-profile" style="text-decoration: none;">
+          <div class="navbar-item nav-profile"">
+            <img
+              src="./svg/profile.svg"
+              class="navbar-item-icon"
+            />
+          </div>
+        </a>
         <div class="navbar-item">
           <a class="NavBar-Button" id="NavBar-Button" data-modal-target="#modal"><img
             src="./svg/search.svg"
@@ -109,21 +113,22 @@
           class="logo"
         />
         <div class="sidebar-menu">
-          <div class="sidebar-menu__item sidebar-menu__item--active">
-            <img src="./svg/home.svg" class="sidebar-menu__item-icon" />Home
-          </div>
+          <a href="http://localhost/Facebook_frontEnd/pages/home.html" id="left-home" style="text-decoration: none;">
+            <div class="sidebar-menu__item sidebar-menu__item--active nav-home">
+                <img src="./svg/home.svg" class="sidebar-menu__item-icon" />Home
+            </div>
+        </a>
           <div class="sidebar-menu__item">
             <a class="openBtn" onclick="openNotifications()"><img
               src="./svg/notifications.svg"
               class="sidebar-menu__item-icon"
             /></a>Notifications
           </div>
-          <div class="sidebar-menu__item">
-            <img
-              src="./svg/profile.svg"
-              class="sidebar-menu__item-icon"
-            />Profile
-          </div>
+          <a href="http://localhost/Facebook_frontEnd/pages/profile.html" id="left-profile" style="text-decoration: none;">
+            <div class="sidebar-menu__item nav-profile">
+                <img src="./svg/profile.svg" class="sidebar-menu__item-icon" />Profile
+            </div>
+        </a>
         </div>
       </div>
       <!-- END LEFT SIDEBAR -->
@@ -197,5 +202,6 @@
     <script defer src="../scripts/modal.js"></script>
     <script src="../scripts/axios.min.js"></script>
     <script src="../scripts/home_page.js"></script>
+    <script src="../scripts/nav.js"></script>
   </body>
 </html>
