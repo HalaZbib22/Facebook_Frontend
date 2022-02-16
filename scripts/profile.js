@@ -123,34 +123,17 @@ const getFriends = async () => {
     //adding friends to html NEED TO FIX image src from api
     res.forEach(friend => {
         friends.innerHTML += `
-        
-        <div class="layout__main-postBox-input">
-        <img src=" " alt="ProfilePic" onerror="this.onerror=null;this.src='../assets/placeholder.png';" />
-        <div class="posts__main">
-            <div class="posts__header">
-                <div id="user_name" class="posts__author-name">${friend.name}</div>
-                <div id="user_date" class="posts__publish-time"></div>
-            </div>
-            <div id="user_email" class="posts__author-username"></div>
-            <div id="${friend.request_id}" class="action-buttons">
-            <a class="delete-button">Delete</a>
-            <a class="edit-button">Edit</a>
-        </div>
-        </div>
-    </div>
-
-    
-      <div  class="posts">
+        <div  class="posts">
+        <img src="${friend.image}" alt="picture" class="posts__author-logo" onerror="this.onerror=null;this.src='../assets/placeholder.png';"/>
         <div class="posts__main">
           <div class="posts__header">
-            <div class="posts__publish-time">${post.created_at}</div>
+          <div class="posts__author-name">${friend.name}</div>
+          <div class="posts__author-username">${friend.email}</div>
+            <div class="posts__publish-time">Added at ${friend.added_at}</div>
           </div>
-          <div class="posts__content"id="content${post.id}" contenteditable="true">${post.content}</div>
           <div class="posts__post__footer">
-            <span class="far fa-heart" ></span><span>${post.likes_count}</span>
-            <div id="${post.id}" class="action-buttons">
-                <a class="delete-button">Delete</a>
-                <a class="edit-button">Edit</a>
+            <div id="${friend.id}" class="action-buttons">
+                <a class="remove-button">Remove</a>
             </div>
           </div>
         </div>
@@ -159,7 +142,32 @@ const getFriends = async () => {
     });
 }
 
+const removeFriend = async (e) => {
+    let record_id = parseInt(e.target.parentNode.id)
+    let notify = document.querySelector('.friends-notification')
+    let payload = {
+        token: localStorage.getItem('token'),
+        friend_id: record_id,
+        request: "accepted"
+    }
+    let res = await axios.post(`${base_url}/users/remove_friend.php`, payload)
+    if (res.message === "Removed") {
+        notify.textContent = res.message
+        e.target.parentNode.parentNode.parentNode.parentNode.style.display = "none"
+        notify.style.display = "block"
+        notify.style.color = "green"
+        return;
+    } else {
+        notify.textContent = res.message
+        notify.style.display = "block"
+        notify.style.color = "red"
+    }
+}
+
 const getBlocks = async () => {
+}
+
+const removeBlock = async () => {
 }
 
 const main = async () => {
@@ -170,6 +178,7 @@ const main = async () => {
     document.querySelectorAll('.topnav a').forEach(e => e.addEventListener('click', changeMainDiv))
     document.querySelectorAll('.action-buttons .delete-button').forEach(button => button.addEventListener('click', deletePost))
     document.querySelectorAll('.action-buttons .edit-button').forEach(button => button.addEventListener('click', editPost))
+    document.querySelectorAll('.action-buttons .remove-button').forEach(button => button.addEventListener('click', removeFriend))
 }
 
 window.onload = main
