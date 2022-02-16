@@ -79,3 +79,27 @@
 .posts__post__footer a:hover{
     color: #1b94e0;
 }
+
+
+.profile-button {
+    background: transparent;
+    color: #2AA2F2;
+    border-style: solid;
+    border-color: #2AA2F2;
+    cursor: pointer;
+    border-width: 0.5px;
+    border-radius: 10px;
+    text-decoration: none ; 
+    padding: 5px 10px;
+    margin: 5px;
+  }
+  
+  .profile-button:active {
+    border-radius: 22px;
+  }
+
+  .profile-button:hover {
+    text-decoration: none !important; 
+     color: rgb(0, 0, 0) !important;
+    background: #2AA2F2;
+  }
