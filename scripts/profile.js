@@ -202,7 +202,26 @@ const getBlocks = async () => {
     });
 }
 
-const removeBlock = async () => {
+const removeBlock = async (e) => {
+    let record_id = parseInt(e.target.parentNode.id)
+    let notify = document.querySelector('.blocks-notification')
+    let payload = {
+        token: localStorage.getItem('token'),
+        friend_id: record_id,
+        block: false
+    }
+    let res = await axios.post(`${base_url}/users/block_unblock.php`, payload)
+    if (res.message === "User Unblocked") {
+        notify.textContent = res.message
+        e.target.parentNode.parentNode.parentNode.parentNode.style.display = "none"
+        notify.style.display = "block"
+        notify.style.color = "green"
+        return;
+    } else {
+        notify.textContent = res.message
+        notify.style.display = "block"
+        notify.style.color = "red"
+    }
 }
 
 const main = async () => {
