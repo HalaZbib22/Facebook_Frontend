@@ -24,7 +24,6 @@ const postStatus = async () => {
     }
 }
 
-
 const getFeed = async () => {
     let posts = document.querySelector('.posts-container')
     let notify = document.querySelector('.feed-notification')
@@ -64,7 +63,6 @@ const getFeed = async () => {
     });
 }
 
-
 const toggleLikeStatus = async (e) => {
     // change like with api call and icon on the posts id in html and likes count
     let status = e.target.id == "true"
@@ -97,14 +95,14 @@ const goToFriends = async e => {
     location.href = "http://localhost/Facebook_frontEnd/pages/friend.html"
 }
 
-const getRequests = () => {
+const getRequests = async () => {
     let container = document.querySelector('.requests-container')
 
     let request = {
         token: localStorage.getItem('token')
         }
     
-        let res = await axios.post('', request)
+        let res = await axios.post(`${base_url}/users/get_requests.php`, request)
     if (res.message) {
         notify.textContent = res.message
         notify.style.display = "block"
@@ -181,14 +179,61 @@ const rejectFriend = async (e) => {
     }
 }
 
+const AllUsers = async () => {
+    let users = document.querySelector("#users-container");
+    let request = {
+      token: localStorage.getItem("token"),
+    };
+  
+    let res = await axios.post(`${base_url}/users/get_all.php`, request);
+  
+    res.forEach((user) => {
+      users.innerHTML += `
+      <img src="" alt="picture" class="posts__author-logo" onerror="this.onerror=null;this.src='../assets/placeholder.png';"/>
+          <div class="who-to-add__content">
+            <div>
+              <div class="who-to-add__author-name">${user.name}</div>
+              <div class="who-to-add__author-slug">${user.email}</div>
+            </div>
+            <div id="${user.id}" class="who-to-add__button">Add</div>
+          </div>
+          `;
+    });
+  
+};
+
+const addUser = async(e) => {
+    let user_id = parseInt(e.target.id)
+    let notify = document.querySelector('.users-notify')
+    let payload = {
+        token: localStorage.getItem('token'),
+        friend_id: user_id
+    }
+    let res = await axios.post(`${base_url}/users/add.php`, payload)
+    if (res.message === "Request sent") {
+        notify.textContent = res.message
+        notify.style.display = "block"
+        notify.style.color = "green"
+        return;
+    } else {
+        notify.textContent = res.message
+        notify.style.display = "block"
+        notify.style.color = "red"
+    }
+}
 
 const main = async () => {
-    await document.querySelector('.layout__main-postBox-PostButton').addEventListener('click', postStatus)
+    document.querySelector('.layout__main-postBox-PostButton').addEventListener('click', postStatus)
 
     await getFeed()
+    await getRequests()
+    await AllUsers()
 
     document.querySelectorAll('.like-toggler .fa-heart').forEach(button => button.addEventListener('click', toggleLikeStatus) )
     document.querySelectorAll('.profile-button').forEach(button => button.addEventListener('click', goToFriends) )
+    document.querySelectorAll('.accept-button').forEach(button => button.addEventListener('click', acceptFriend) )
+    document.querySelectorAll('.reject-button').forEach(button => button.addEventListener('click', rejectFriend) )
+    document.querySelectorAll('.who-to-add__button').forEach(button => button.addEventListener('click', addUser) )
 }
 
 window.onload = main
