@@ -118,12 +118,20 @@
                 <img src="./svg/home.svg" class="sidebar-menu__item-icon" />Home
             </div>
         </a>
-          <div class="sidebar-menu__item">
-            <a class="openBtn" onclick="openNotifications()"><img
+
+        <a class="sidebar-Button" data-modal-target="#modal"><div class="sidebar-menu__item">
+          <img
+            src="./svg/search.svg"
+            class="sidebar-menu__item-icon"
+          />SEARCH
+        </div></a>
+
+        <a class="sidebar-Button" onclick="openNotifications()"><div class="sidebar-menu__item">
+            <img
               src="./svg/notifications.svg"
               class="sidebar-menu__item-icon"
-            /></a>Notifications
-          </div>
+            />Notifications
+          </div></a>
           <a href="http://localhost/Facebook_frontEnd/pages/profile.html" id="left-profile" style="text-decoration: none;">
             <div class="sidebar-menu__item nav-profile">
                 <img src="./svg/profile.svg" class="sidebar-menu__item-icon" />Profile
@@ -162,10 +170,10 @@
       <!-- END OF POSTING SECTION -->
       <!-- START OF RIGHT SIDEBAR -->
       <div class="layout__right-sidebar-container">
-        <div class="search">
+        <!-- <div class="search">
           <a class="NavBar-Button" id="NavBar-Button" data-modal-target="#modal"><span class="material-icons widgets__searchIcon">search</span>
           <input type="text" placeholder="Search friends" /></a>
-        </div>
+        </div> -->
         <div class="layout__right-sidebar">
           <div class="who-to-add">
             <div class="who-to-add__block">
