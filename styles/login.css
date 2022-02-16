@@ -37,8 +37,8 @@ body {
 
 .title {
   margin-top: 10px;
-  font-weight: 900;
-  font-size: 1.8rem;
+  font-weight: 1500;
+  font-size: 2rem;
   color: #1da1f2;
   letter-spacing: 1px;
 }
@@ -63,6 +63,7 @@ button {
   border: none;
   outline: none;
   box-sizing: border-box;
+  font-family: poppins;
 }
 
 label {
@@ -126,4 +127,8 @@ button:hover {
     color:black !important;
   width: 25%;
   justify-content: flex-end;
+}
+
+.EmailLogin input{
+  margin-bottom:10px;
 }
