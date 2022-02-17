@@ -54,7 +54,7 @@ const getFeed = async () => {
           </div>
           <div class="posts__content">${post.content}</div>
           <div class="posts__post__footer">
-            <a  id="${post.id}" class="like-toggler"><span id="${post.is_liked}" class="${post.is_liked ? 'fas' : 'far'} fa-heart" style="${post.is_liked ? 'color:red' : ''}"></span><span>${post.likes_count}</span></a>
+            <a  id="post-${post.id}" class="like-toggler"><span id="${post.is_liked}" class="${post.is_liked ? 'fas' : 'far'} fa-heart" style="${post.is_liked ? 'color:red' : ''}"></span><span>${post.likes_count}</span></a>
             <a id="${post.user_id}" class="profile-button">Profile</a>
             </div>
         </div>
@@ -66,8 +66,7 @@ const getFeed = async () => {
 const toggleLikeStatus = async (e) => {
     // change like with api call and icon on the posts id in html and likes count
     let status = e.target.id == "true"
-    console.log(status)
-    let post_id = parseInt(e.target.parentNode.id)
+    let post_id = parseInt(e.target.parentNode.id.replace('post-', ''))
     
     let request = {
         token: localStorage.getItem('token'),
@@ -75,17 +74,20 @@ const toggleLikeStatus = async (e) => {
         is_liked: !status
     }
     
+
     let res = await axios.post(`${base_url}/statuses/like_unlike_status.php`, request)
+  
     if(res.message != "Done"){
         console.log(res)
     }
     // update ids and styles in the likes footer
-    let footer = document.getElementById(`${post_id}`)
+    let footer = document.getElementById(`post-${post_id}`)
     footer.lastChild.textContent =  request.is_liked ? parseInt(footer.textContent)+1 : parseInt(footer.textContent)-1
 
     let span = footer.firstChild
     span.id = request.is_liked
     span.style.color = !status ? 'red' : 'black'
+
 
 }
 

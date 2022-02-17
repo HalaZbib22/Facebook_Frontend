@@ -57,7 +57,6 @@ const getFriendsPosts = async () => {
 const toggleLikeStatus = async (e) => {
     // change like with api call and icon on the posts id in html and likes count
     let status = e.target.id == "true"
-    console.log(status)
     let post_id = parseInt(e.target.parentNode.id)
     
     let request = {
