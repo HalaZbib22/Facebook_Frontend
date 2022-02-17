@@ -5,10 +5,11 @@
     overflow-y: scroll;
 }
 
+
+
 .who-to-add__block{
     padding: 10px 15px;
     display: flex;
-    align-items: center;
     border-bottom: 1px solid #e6ecf0;
 }
 
@@ -60,8 +61,4 @@
 .who-to-add__button:hover{
     background: rgba(29, 161, 242, 0.1);
     cursor: pointer;
-}
-
-.who-to-add > h2{
-    position:sticky;
 }
