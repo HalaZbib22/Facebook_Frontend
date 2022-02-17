@@ -181,6 +181,7 @@ const rejectFriend = async (e) => {
 
 const AllUsers = async () => {
     let users = document.querySelector("#users-container");
+    let who_to_add = document.querySelector(".who-to-add-user-list");
     let request = {
       token: localStorage.getItem("token"),
     };
@@ -198,6 +199,16 @@ const AllUsers = async () => {
             <div id="${user.id}" class="who-to-add__button">Add</div>
           </div>
           `;
+          who_to_add.innerHTML += `
+          <img src="" alt="picture" class="posts__author-logo" onerror="this.onerror=null;this.src='../assets/placeholder.png';" style="padding: 5px;"/>
+              <div class="who-to-add__content" style="padding: 5px;">
+                <div>
+                  <div class="who-to-add__author-name">${user.name}</div>
+                  <div class="who-to-add__author-slug">${user.email}</div>
+                </div>
+                <div id="${user.id}" class="who-to-add__button">Add</div>
+              </div>
+              `;
     });
   
 };
