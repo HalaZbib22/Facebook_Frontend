@@ -45,6 +45,8 @@
   
   .modal-body {
     padding: 10px 15px;
+    height: 50vh;
+    overflow-y: scroll;
   }
   .modal-body > div {
     margin:10px;

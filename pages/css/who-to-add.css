@@ -1,6 +1,8 @@
 .who-to-add{
     background: #f5f8fa;
     border-radius: 15px;
+    height: 80vh;
+    overflow-y: scroll;
 }
 
 .who-to-add__block{
@@ -58,4 +60,8 @@
 .who-to-add__button:hover{
     background: rgba(29, 161, 242, 0.1);
     cursor: pointer;
+}
+
+.who-to-add > h2{
+    position:sticky;
 }
