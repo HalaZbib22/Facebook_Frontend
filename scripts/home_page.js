@@ -233,6 +233,11 @@ const addUser = async(e) => {
     }
 }
 
+const logOut = () => {
+    localStorage.clear()
+    location.replace('http://localhost/Facebook_frontEnd/')
+}
+
 const main = async () => {
     document.querySelector('.layout__main-postBox-PostButton').addEventListener('click', postStatus)
 
@@ -245,6 +250,7 @@ const main = async () => {
     document.querySelectorAll('.accept-button').forEach(button => button.addEventListener('click', acceptFriend) )
     document.querySelectorAll('.reject-button').forEach(button => button.addEventListener('click', rejectFriend) )
     document.querySelectorAll('.who-to-add__button').forEach(button => button.addEventListener('click', addUser) )
+    document.querySelectorAll('.logout-nav').forEach(button => button.addEventListener('click', logOut) )
 }
 
 window.onload = main

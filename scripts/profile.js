@@ -224,6 +224,11 @@ const removeBlock = async (e) => {
     }
 }
 
+const logOut = () => {
+    localStorage.clear()
+    location.replace('http://localhost/Facebook_frontEnd/')
+}
+
 const main = async () => {
     setProfile()
     await getPosts()
@@ -234,6 +239,7 @@ const main = async () => {
     document.querySelectorAll('.action-buttons .edit-button').forEach(button => button.addEventListener('click', editPost))
     document.querySelectorAll('.action-buttons .remove-button').forEach(button => button.addEventListener('click', removeFriend))
     document.querySelectorAll('.action-buttons .unblock-button').forEach(button => button.addEventListener('click', removeBlock))
+    document.querySelectorAll('.logout-nav').forEach(button => button.addEventListener('click', logOut) )
 }
 
 window.onload = main
