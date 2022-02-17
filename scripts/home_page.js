@@ -54,7 +54,7 @@ const getFeed = async () => {
           </div>
           <div class="posts__content">${post.content}</div>
           <div class="posts__post__footer">
-            <a  id="post-${post.id}" class="like-toggler"><span id="${post.is_liked}" class="${post.is_liked ? 'fas' : 'far'} fa-heart" style="${post.is_liked ? 'color:red' : ''}"></span><span>${post.likes_count}</span></a>
+            <a  id="post-${post.id}" class="like-toggler"><span id="${post.is_liked}" class="far fa-heart" style="${post.is_liked ? 'color:red' : ''}"></span><span>${post.likes_count}</span></a>
             <a id="${post.user_id}" class="profile-button">Profile</a>
             </div>
         </div>
