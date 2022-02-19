@@ -1,23 +1,9 @@
 .layout__main-home{
-    /* display: flex;
-    border: 1px solid #e6ecf0;
-    padding-left: 15px;;
-    padding-bottom: 17px;;
-    position: fixed;
-    top: 0;
-    background-color: white;
-    height: 45px;
-    margin:0;
-    border-bottom-color: white; */
-    /* display: grid; */
         position: sticky;
         justify-content: space-between;
         margin: 0;
         padding:0;
         width: 100%;
-        /* z-index: 100; */
-        /* padding: 15px 20px; */
-      
 }
 
 .layout__main-home h2:hover{
@@ -31,7 +17,6 @@
 
 .layout__main-home .material-icons{
     color: black;
-    /* padding-left: 70px;; */
     margin-top: 20px;;
     margin-right: 750px;;
 }

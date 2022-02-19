@@ -142,7 +142,7 @@ const acceptFriend = async (e) => {
     let notify = document.querySelector('.requests-notf')
     let payload = {
         token: localStorage.getItem('token'),
-        friend_id: record_id,
+        record_id: record_id,
         request: "accepted"
     }
     let res = await axios.post(`${base_url}/users/accept_friend.php`, payload)

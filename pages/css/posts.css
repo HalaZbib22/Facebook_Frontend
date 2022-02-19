@@ -1,6 +1,5 @@
 .posts{
     display: flex;
-    /* text-align:center; */
     border: 1px solid #e6ecf0;
     margin-bottom: 2px;
     padding: 10px 15px;
@@ -39,14 +38,9 @@
 }
 
 .post__badge{
-    /* padding-top: 8px;; */
     font-size: 14px;
     color: #1D9BF0;
-    margin-right: 1px;;
-    /* margin-top: 6px;; */
-    /* margin-right: 4px; */
-    /* margin-left: 0px;;
-    padding-left: 0px;; */
+    margin-right: 1px;
 }
 
 .posts__author-username{
